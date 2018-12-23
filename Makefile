@@ -1,7 +1,7 @@
 #
 #	Makefile.005
 #
-#	GitHub ‚Ì‹@”\‚ğ’Ç‰Á
+#	GitHub ã®æ©Ÿèƒ½ã‚’è¿½åŠ 
 #
 
 #F95	=	centrifugal_potential_idogata.f95	\
@@ -17,7 +17,7 @@ CSV	=	${wildcard:*.csv}
 #
 #
 
-COMMIT_FILES	=	${F95} Makefile ${CSV}
+COMMIT_FILES	=	${F95} Makefile ${CSV} README.md
 
 #
 #
@@ -33,7 +33,7 @@ a.exe	:	$(OBJ)
 	gfortran -o $@ $<
 
 #
-# ƒƒ^‚È¶¬‹K‘¥
+# ãƒ¡ã‚¿ãªç”Ÿæˆè¦å‰‡
 #
 
 .SUFFIXES:	.f95
@@ -41,14 +41,14 @@ a.exe	:	$(OBJ)
 .f95.o	:
 	gfortran -c $<
 
-# ‚ÍAucentrifugal_potential_idogata.o ‚ğ‚Â‚­‚êv‚Æ‚¢‚í‚ê‚é‚ÆA
+# ã¯ã€ã€Œcentrifugal_potential_idogata.o ã‚’ã¤ãã‚Œã€ã¨ã„ã‚ã‚Œã‚‹ã¨ã€
 #	#	centrifugal_potential_idogata.o	:	centrifugal_potential_idogata.f95
 #	#		gfortran -c $<
-# ‚Æ“¯‚¶‚È‚é.
-# ‚³‚ç‚ÉA< ‚Æ‚¢‚¤•Ï”‚ÍAsoruce •À‚Ñ‚É‚©‚«‚©‚í‚é‚Ì‚Å
+# ã¨åŒã˜ãªã‚‹.
+# ã•ã‚‰ã«ã€< ã¨ã„ã†å¤‰æ•°ã¯ã€soruce ä¸¦ã³ã«ã‹ãã‹ã‚ã‚‹ã®ã§
 #	#	centrifugal_potential_idogata.o	:	centrifugal_potential_idogata.f95
 #	#		gfortran -c centrifugal_potential_idogata.f95
-# ‚Æ‚È‚é
+# ã¨ãªã‚‹
 
 #centrifugal_potential_idogata.o	:	centrifugal_potential_idogata.f95
 #	gfortran -c centrifugal_potential_idogata.f95
@@ -68,8 +68,8 @@ clean	:
 #	touch clean
 
 #
-#	GitHub ŠÖŒW‚Ì‘€ì
-#		•Ï”u?v‚ÍAsources ‚Ì’†‚Å target ‚æ‚èV‚µ‚¢ƒtƒ@ƒCƒ‹‚¾‚¯‚É’u‚«Š·‚í‚é
+#	GitHub é–¢ä¿‚ã®æ“ä½œ
+#		å¤‰æ•°ã€Œ?ã€ã¯ã€sources ã®ä¸­ã§ target ã‚ˆã‚Šæ–°ã—ã„ãƒ•ã‚¡ã‚¤ãƒ«ã ã‘ã«ç½®ãæ›ã‚ã‚‹
 #
 
 pull	:
@@ -80,7 +80,6 @@ push	:	${COMMIT_FILES}
 	git commit -m "`LANG=C date`"
 	git push origin master
 	touch push
-
 
 
 
