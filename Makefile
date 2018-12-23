@@ -1,21 +1,23 @@
 #
-#	Makefile.004
+#	Makefile.005
 #
-#	変数は自分増やせる
+#	GitHub の機能を追加
 #
-#	特別な変数(一文字変数)
-#		@	target
-#		<	sources
-#
-#	継続行
-#		行末(改行の直前)の「\」は、継続行を表す
 
-F95	=	centrifugal_potential_idogata.f95	\
-		obtain_phase_shift.f95	\
-		sub_double_factorial.f95	\
-		sub_runge_kutta_for_phase_shift.f95
+#F95	=	centrifugal_potential_idogata.f95	\
+#		obtain_phase_shift.f95	\
+#		sub_double_factorial.f95	\
+#		sub_runge_kutta_for_phase_shift.f95
 
+F95	=	${wildcard:*.f95}
 OBJ	=	$(F95:.f95=.o)
+CSV	=	${wildcard:*.csv}
+
+#
+#
+#
+
+COMMIT_FILES	=	${F95} Makefile ${CSV}
 
 #
 #
@@ -64,4 +66,22 @@ clean	:
 	rm a.exe
 	rm $(OBJ)
 #	touch clean
+
+#
+#	GitHub 関係の操作
+#		変数「?」は、sources の中で target より新しいファイルだけに置き換わる
+#
+
+pull	:
+	git pull origin master
+
+push	:	${COMMIT_FILES}
+	git add $?
+	git commit -m "`LANG=C date`"
+	git push origin master
+	touch push
+
+
+
+
 
